@@ -121,9 +121,6 @@ ONBUILD RUN chmod +x import.sh
 ONBUILD RUN import.sh mysqld
 ONBUILD RUN rm /docker-entrypoint-initdb.d/dump.sql
 
-
-VOLUME /var/lib/mysql
-
 EXPOSE 3306
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["mysqld"]
