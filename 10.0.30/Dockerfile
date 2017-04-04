@@ -117,9 +117,10 @@ ONBUILD ARG MYSQL_PASSWORD
 ONBUILD ENV MYSQL_PASSWORD $MYSQL_PASSWORD
 
 ONBUILD COPY dump.sql /docker-entrypoint-initdb.d/dump.sql
-ONBUILD RUN import.sh mysqld
-
 ONBUILD RUN chmod +x import.sh
+ONBUILD RUN import.sh mysqld
+ONBUILD RUN rm /docker-entrypoint-initdb.d/dump.sql
+
 
 VOLUME /var/lib/mysql
 
